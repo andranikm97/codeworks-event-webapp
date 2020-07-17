@@ -12,22 +12,14 @@ function App() {
   useEffect(() => {
     ApiClient.getEvents()
       .then(events => {
-        setEvents(events)
+        // Filter out events coming from DB to only grab upcoming ones
+        setEvents(events.filter(event => new Date(event.date) > Date.now()))
       })
   }, []);
 
-  function getEvents() {
-    ApiClient.getEvents()
-      .then(events => {
-        setEvents(events)
-    })
-  }
-
   function postEvent(info) {
-    console.log('Received info:',info);
     ApiClient.postEvent(info)
       .then(response => {
-        console.log(response);
         setEvents(currentEvents => {
           return [...currentEvents, response];
         })

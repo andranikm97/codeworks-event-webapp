@@ -1,7 +1,7 @@
 const ApiUrl = 'http://localhost:3001/';
 const ApiClient = {};
 
-function getEvents () {
+ApiClient.getEvents = function () {
   return fetchRequest('events', {
     method: 'GET',
     headers: {
@@ -10,7 +10,7 @@ function getEvents () {
   });
 }
 
-function postEvent (info) {
+ApiClient.postEvent = function (info) {
   return fetchRequest('events', {
     method: 'POST',
     headers: {
@@ -28,9 +28,5 @@ function fetchRequest (path, options) {
       console.error(`Error: ${err}\nIn fetch request from ${path}\nAt ${ApiUrl}`);
     })
 }
-
-
-ApiClient.getEvents = getEvents;
-ApiClient.postEvent = postEvent;
 
 export default ApiClient;

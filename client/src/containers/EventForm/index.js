@@ -2,37 +2,36 @@ import React, {useState} from 'react';
 import './EventForm.css';
 
 function EventForm ({postEvent}) {
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-  const [venue, setVenue] = useState('');
+  const [eventInfo, setEventInfo] = useState({
+    title: '',
+    date: '',
+    venue: '',
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
     if(checkDate()) {
-      const info = {title, date, venue};
-      postEvent(info);
-      setTitle('');
-      setDate('');
-      setVenue('');
+      postEvent(eventInfo);
+      setEventInfo({
+        title: '',
+        date: '',
+        venue: '',
+      })
     } 
   }
 
-  function handleTitleChange (e) {
-    setTitle(e.target.value);
-  }
-
-  function handleDateChange (e) {
-    setDate(e.target.value);
-  }
-
-  function handleVenueChange (e) {
-    setVenue(e.target.value);
+  function handleChange(e) {
+    setEventInfo(currentInfo => {
+        return {
+          ...currentInfo, 
+          [e.target.name]: e.target.value
+        }
+    })
+    e.persist();
   }
 
   function checkDate() {
-    let compareDates = new Date(date) > Date.now();
-    console.log(compareDates);
-    return compareDates;
+    return new Date(eventInfo.date) > Date.now();
   }
 
   return (
@@ -45,20 +44,20 @@ function EventForm ({postEvent}) {
 
         <div>
           <p className = "title">TITLE</p>
-          <input className = "form-control" name = "title-input" value = {title} onChange = {handleTitleChange} type="text"/>
+          <input className = "form-control" name = "title" value = {eventInfo.title} onChange = {handleChange} type="text"/>
         </div>
 
         <div>
           <p className = "date">DATE</p>
-          {checkDate() || !date ? 
-          (<input className = "form-control" name = "date-input" value = {date} onChange = {handleDateChange} type = "datetime-local" />) : 
-          <input className = "form-control is-invalid" name = "date-input" value = {date} onChange = {handleDateChange} type = "datetime-local" />
+          {checkDate() || !eventInfo.date ? 
+          (<input className = "form-control" name = "date" value = {eventInfo.date} onChange = {handleChange} type = "datetime-local" />) : 
+          <input className = "form-control is-invalid" name = "date" value = {eventInfo.date} onChange = {handleChange} type = "datetime-local" />
           }
         </div>
 
         <div>
           <p className = "venue">VENUE</p>
-          <input className = "form-control" name = "venue-input" value = {venue} onChange = {handleVenueChange} type="text"/>
+          <input className = "form-control" name = "venue" value = {eventInfo.venue} onChange = {handleChange} type="text"/>
         </div>
 
       
@@ -67,6 +66,7 @@ function EventForm ({postEvent}) {
       </form>
     </div>
   )
+
 }
 
 export default EventForm;

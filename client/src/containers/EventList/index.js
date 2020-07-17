@@ -10,9 +10,9 @@ function EventList (props) {
       let dateB = new Date(b.date);
 
       if(dateA < dateB) {
-        return 1;
-      } else if (dateA > dateB) {
         return -1;
+      } else if (dateA > dateB) {
+        return 1;
       } else {
         return 0;
       }
@@ -21,15 +21,20 @@ function EventList (props) {
 
   return (
     <div className = "event-list" id = "list">
-      {sortEvents(props.events).map((event, index) => 
-      { 
-        if(new Date(event.date) > Date.now()) {
-          if (index === 0) {
-            return <NextEvent key = {event._id} event = {event} />
-          } else {
-            return <Event key = {event._id} event = {event} />
-          }
+      {sortEvents(props.events).map((event, index) => { 
+        {/* if (index === 0) {
+          return <NextEvent key = {event._id} event = {event} isNext = {true}/>
+        } else {
+          return <Event key = {event._id} event = {event} isNext = {false}/>
+        } */}
+
+        if (index === 0) {
+          return <Event key = {event._id} event = {event} isNext = {true}/>
+        } else {
+          return <Event key = {event._id} event = {event} isNext = {false}/>
         }
+
+        
       }
       )}
     </div>

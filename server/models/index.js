@@ -11,8 +11,6 @@ dotenv.config();
   }, function (error) {
     if (error) {
       console.error(`Error in connection to ${process.env.DB_PATH}:`, error);
-    } else {
-      console.log(`Connected to ${process.env.DB_PATH} successful`);
     }
   })
 })();
