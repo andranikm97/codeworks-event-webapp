@@ -8,12 +8,13 @@ function EventForm ({postEvent}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('Form submitted');
-    const info = {title, date, venue};
-    postEvent(info);
-    setTitle('');
-    setDate('');
-    setVenue('');
+    if(checkDate()) {
+      const info = {title, date, venue};
+      postEvent(info);
+      setTitle('');
+      setDate('');
+      setVenue('');
+    } 
   }
 
   function handleTitleChange (e) {
@@ -28,6 +29,12 @@ function EventForm ({postEvent}) {
     setVenue(e.target.value);
   }
 
+  function checkDate() {
+    let compareDates = new Date(date) > Date.now();
+    console.log(compareDates);
+    return compareDates;
+  }
+
   return (
     <div className = "event-submit">
       <form className = "event-form" onSubmit = {handleSubmit}>
@@ -38,17 +45,20 @@ function EventForm ({postEvent}) {
 
         <div>
           <p className = "title">TITLE</p>
-          <input name = "title-input" value = {title} onChange = {handleTitleChange} type="text"/>
+          <input className = "form-control" name = "title-input" value = {title} onChange = {handleTitleChange} type="text"/>
         </div>
 
         <div>
           <p className = "date">DATE</p>
-          <input name = "date-input" value = {date}  onChange = {handleDateChange} type = "datetime-local" />
+          {checkDate() || !date ? 
+          (<input className = "form-control" name = "date-input" value = {date} onChange = {handleDateChange} type = "datetime-local" />) : 
+          <input className = "form-control is-invalid" name = "date-input" value = {date} onChange = {handleDateChange} type = "datetime-local" />
+          }
         </div>
 
         <div>
           <p className = "venue">VENUE</p>
-          <input name = "venue-input" value = {venue} onChange = {handleVenueChange} type="text"/>
+          <input className = "form-control" name = "venue-input" value = {venue} onChange = {handleVenueChange} type="text"/>
         </div>
 
       

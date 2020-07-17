@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="main-container">
       <EventList className = "list" events = {events}/>
       <EventForm className = "form" postEvent = {postEvent}/>
     </div>

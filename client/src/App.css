@@ -7,7 +7,7 @@ body {
 
 
 
-.container {
+.main-container {
   display: flex;
   flex-flow: row nowrap;
   height: 90vh;
