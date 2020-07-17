@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './EventForm.css';
+
 function EventForm ({postEvent}) {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');

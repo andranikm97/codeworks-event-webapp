@@ -12,8 +12,10 @@ app.use(router);
 
 const port = process.env.PORT || 4000;
 (async () => {
+  
+  // Make sure db connects before server boots
   await require('./models/index');;
   app.listen(port, () => {
-    console.log(`👌Server running at http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port} 👌`);
   })
 })();

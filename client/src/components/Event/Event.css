@@ -3,17 +3,58 @@
   flex-flow: row nowrap;
   width: 75%;
   margin: 20px 0px;
+  border-radius: 5px;
+  border: solid;
+  border-width: 1px;
+  border-color: gainsboro;
 }
 
 .event-date {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 15%;
-  /* flex-grow: 1; */
+  width: 30%;
+  background-color: #fb7813;
+  border-radius: 5px 0px 0px 5px;
+  color: whitesmoke;
+  font-size: 30px;
+  font-family: 'Nunito',
+    sans-serif;
+  font-weight: 900;
+}
+
+.event-date p {
+  margin: 3px;
 }
 
 .event-info {
   width: 85%;
-  /* flex-grow: 20; */
+  padding: 10px;
+}
+
+.event-info * {
+  margin-left: 10px;
+}
+
+.event-info h1 {
+  color: black;
+  font-size: 35px;
+  font-family: 'Nunito',
+    sans-serif;
+  font-weight: 900;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.event-logistics {
+  color: lightslategrey;
+  font-size: 15px;
+  font-family: 'Nunito',
+    sans-serif;
+  font-weight: 300;
+}
+
+.event-logistics * {
+  margin-left: 0px;
 }
