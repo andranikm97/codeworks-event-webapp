@@ -1,0 +1,19 @@
+.event-item {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 75%;
+  margin: 20px 0px;
+}
+
+.event-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  /* flex-grow: 1; */
+}
+
+.event-info {
+  width: 85%;
+  /* flex-grow: 20; */
+}

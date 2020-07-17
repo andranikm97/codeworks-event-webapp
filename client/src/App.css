@@ -1,0 +1,18 @@
+body {
+  height: 100vh;
+  margin: 0px;
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 25px 25px 0px 25px;
+  height: 100vh;
+  margin: 0px;
+}
+
+.list {
+  margin-right: 40px;
+}
+
+.form {}

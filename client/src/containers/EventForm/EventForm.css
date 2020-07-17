@@ -1,0 +1,37 @@
+.event-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 10px;
+  margin: 0px 50px;
+  width: 300px;
+  position: relative;
+}
+
+.create-event {
+  text-align: center;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+
+input {
+  margin: 5px 0px;
+}
+
+.submit-button {
+  padding: 20px;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.submit-button span {
+  font-size: 30px;
+}
