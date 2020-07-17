@@ -20,7 +20,7 @@ function EventList (props) {
   }
 
   return (
-    <div className = "event-list">
+    <div className = "event-list" id = "list">
       {sortEvents(props.events).map((event, index) => 
       { 
         if(new Date(event.date) > Date.now()) {
