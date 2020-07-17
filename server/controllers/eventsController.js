@@ -13,7 +13,6 @@ exports.getEvents = async (req, res) => {
 
 exports.postEvent = async (req, res) => {
   try {
-    console.log(req.body);
     const postedEvent = await Event.create(req.body);
     res.status(201);
     res.json(postedEvent);
