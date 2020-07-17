@@ -6,8 +6,6 @@ import ApiClient from './services/ApiClientService/index';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
-
 function App() {
   const [events, setEvents] = useState([]);
 
@@ -26,11 +24,13 @@ function App() {
   }
 
   function postEvent(info) {
-    console.log('Received info:',JSON.stringify(info));
-    ApiClient.postEvent()
-      .then(events => {
-        // console.log('Events:', events); 
-        // setEvents(events)
+    console.log('Received info:',info);
+    ApiClient.postEvent(info)
+      .then(response => {
+        console.log(response);
+        setEvents(currentEvents => {
+          return [...currentEvents, response];
+        })
     })
   }
 

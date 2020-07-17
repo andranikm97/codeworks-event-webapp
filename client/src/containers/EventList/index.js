@@ -25,9 +25,9 @@ function EventList (props) {
       { 
         if(new Date(event.date) > Date.now()) {
           if (index === 0) {
-            return <NextEvent event = {event} />
+            return <NextEvent key = {event._id} event = {event} />
           } else {
-            return <Event event = {event} />
+            return <Event key = {event._id} event = {event} />
           }
         }
       }

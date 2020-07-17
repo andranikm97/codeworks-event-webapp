@@ -1,4 +1,4 @@
-const ApiUrl = 'https://cw-events-092017.herokuapp.com/';
+const ApiUrl = 'http://localhost:3001/';
 const ApiClient = {};
 
 function getEvents () {
@@ -11,7 +11,13 @@ function getEvents () {
 }
 
 function postEvent (info) {
-
+  return fetchRequest('events', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(info)
+  });
 }
 
 function fetchRequest (path, options) {

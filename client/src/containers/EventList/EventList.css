@@ -1,3 +1,4 @@
 .event-list {
   overflow-y: scroll;
+  width: 80%;
 }

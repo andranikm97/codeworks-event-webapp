@@ -1,18 +1,21 @@
 body {
   height: 100vh;
   margin: 0px;
+  padding: 25px;
 }
 
 .container {
   display: flex;
   flex-flow: row nowrap;
-  padding: 25px 25px 0px 25px;
   height: 100vh;
-  margin: 0px;
+  width: 100%;
 }
 
 .list {
+  flex-grow: 5;
   margin-right: 40px;
 }
 
-.form {}
+.form {
+  flex-grow: 2;
+}
