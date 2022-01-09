@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install": "cd ./client && npm i . && cd ../server && npm i .",
-    "start:server": "node ./server",
+    "start:server": "nodemon ./server",
     "start:client": "cd ./client && BROWSER=none npm start && cd ..",
     "start:server-client": "start-test start:server 3001/events start:client",
     "test": "cypress run",
@@ -49,6 +49,7 @@
     }
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "react": "^16.8.6"
   },
   "husky": {
