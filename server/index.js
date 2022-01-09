@@ -7,7 +7,7 @@ const router = require('./router');
 const connectToDB = require('./db/connect');
 
 dotenv.config({
-  path: path.resolve(process.cwd(), 'server/.env'),
+  path: path.resolve(process.cwd(), '.env'),
 });
 
 app.use(cors());

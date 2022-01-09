@@ -1,3 +1,23 @@
+# Start app
+**Step-by-step:**
+## DB
+You must have mongodb configured and running in the background in order for the app to work! Go to `./server/.env` to change the desired DB path on your local machine.
+
+## Start server
+1) `cd server`
+2) `npm i`
+3) `npm run start`
+4) `cd ..`
+
+## Start client
+1) `cd client`
+2) `npm i`
+3) `npm run start`
+
+Open 'http://localhost:3000'
+
+# CODEWORKS Description
+
 # Weekly assessment 6 (4 hours)
 
 This is your final weekly assessment, it sums up many concepts you’ve learned in the junior part of the course, and it marks your passage to the senior part.
