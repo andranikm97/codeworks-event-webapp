@@ -5,8 +5,7 @@ exports.getEvents = async (req, res) => {
     const events = await Event.find();
     res.status(200).json(events);
   } catch (error) {
-    console.error('Failed to get events with error:', error);
-    res.sendStatus(500);
+    res.status(500).json({ error });
   }
 };
 
@@ -15,8 +14,7 @@ exports.postEvent = async (req, res) => {
     const postedEvent = await Event.create(req.body);
     res.status(201).json(postedEvent);
   } catch (error) {
-    console.error('Failed to post event with error:', error);
-    res.sendStatus(500);
+    res.status(500).json({ error });
   }
 };
 
@@ -26,7 +24,6 @@ exports.deleteEvent = async (req, res) => {
     const updatedEvents = await Event.find();
     res.status(201).json(updatedEvents);
   } catch (error) {
-    console.error('Failed to delete event with error:', error);
-    res.sendStatus(500);
+    res.status(500).json({ error });
   }
 };

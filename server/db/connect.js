@@ -9,9 +9,11 @@ const connectToDB = (uri) => {
       useFindAndModify: false,
     },
     function (error) {
+      // eslint-disable-next-line no-console
       console.log('Connected to DB successful!');
       if (error) {
-        console.error(`Error in connection to ${process.env.DB_PATH}:`, error);
+        // eslint-disable-next-line no-console
+        console.error(`Error in connection to ${uri}:`, error);
       }
     },
   );
